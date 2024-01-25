@@ -5,7 +5,7 @@ from .models import Contact
 class ContactSerializer(serializers.ModelSerializer):
     class Meta:
         model = Contact
-        fields = ['name', 'phonenumber', 'contact_type']
+        fields = '__all__'
 
 
 class ContactSearchSerializer(serializers.Serializer):

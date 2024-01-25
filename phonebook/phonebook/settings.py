@@ -25,7 +25,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'phonebook'
+    'phonebook',
+    'drf_yasg'
 ]
 
 MIDDLEWARE = [
@@ -39,6 +40,11 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'phonebook.urls'
+
+# Set auto schema here for swagger docs
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
+}
 
 TEMPLATES = [
     {

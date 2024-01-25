@@ -4,7 +4,7 @@ from .serializers import ContactSerializer, ContactSearchSerializer
 from rest_framework import status
 from rest_framework.response import Response
 from .models import Contact
-from rest_framework.generics import ListAPIView, RetrieveUpdateAPIView
+from rest_framework.generics import ListAPIView, RetrieveUpdateAPIView, DestroyAPIView
 
 
 class AddContactView(APIView):
@@ -48,3 +48,9 @@ class SearchContactView(ListAPIView):
                 queryset = queryset.filter(name__icontains=name_value)
 
         return queryset
+
+
+class DeleteContactView(DestroyAPIView):
+    queryset = Contact.objects.all()
+    serializer_class = ContactSerializer
+    lookup_field = 'id'
